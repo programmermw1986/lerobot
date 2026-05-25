@@ -23,7 +23,7 @@ def main():
     output_directory.mkdir(parents=True, exist_ok=True)
 
     # Select your device
-    device = torch.device("mps")  # or "cuda" or "cpu"
+    device = torch.device("cuda")  # or "cuda" or "cpu"
 
     dataset_id = "lerobot/svla_so101_pickplace"
 
@@ -67,7 +67,7 @@ def main():
     )
 
     # Number of training steps and logging frequency
-    training_steps = 1
+    training_steps = 100
     log_freq = 1
 
     # Run training loop
@@ -94,9 +94,9 @@ def main():
     postprocessor.save_pretrained(output_directory)
 
     # Save all assets to the Hub
-    policy.push_to_hub("<user>/robot_learning_tutorial_act")
-    preprocessor.push_to_hub("<user>/robot_learning_tutorial_act")
-    postprocessor.push_to_hub("<user>/robot_learning_tutorial_act")
+    # policy.push_to_hub("<user>/robot_learning_tutorial_act")
+    # preprocessor.push_to_hub("<user>/robot_learning_tutorial_act")
+    # postprocessor.push_to_hub("<user>/robot_learning_tutorial_act")
 
 
 if __name__ == "__main__":
